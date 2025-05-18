@@ -1,0 +1,64 @@
+{
+  "name": "microName",
+  "providingContractInfoList": [
+    {
+      "name": "micro1",
+      "checksum": "123",
+      "dependencyInfo": {
+        "groupId": "group1",
+        "artifactId": "artifact1",
+        "version": "version1"
+      }
+    },
+    {
+      "name": "micro2",
+      "checksum": "34",
+      "dependencyInfo": {
+        "groupId": "group2",
+        "artifactId": "artifact2",
+        "version": "version2"
+      }
+    },
+    {
+      "name": "micro3",
+      "checksum": "467",
+      "dependencyInfo": {
+        "groupId": "group3",
+        "artifactId": "artifact3",
+        "version": "version3"
+      }
+    }
+  ],
+  "consumingContractInfoList": [
+    {
+      "name": "micro1",
+      "checksum": "312",
+      "serviceName": "service1",
+      "dependencyInfo": {
+        "groupId": "group4",
+        "artifactId": "artifact4",
+        "version": "version4"
+      }
+    },
+    {
+      "name": "micro2",
+      "checksum": "3243",
+      "serviceName": "service2",
+      "dependencyInfo": {
+        "groupId": "group5",
+        "artifactId": "artifact5",
+        "version": "version5"
+      }
+    },
+    {
+      "name": "micro3",
+      "checksum": "4324",
+      "serviceName": "service3",
+      "dependencyInfo": {
+        "groupId": "group6",
+        "artifactId": "artifact6",
+        "version": "version6"
+      }
+    }
+  ]
+}

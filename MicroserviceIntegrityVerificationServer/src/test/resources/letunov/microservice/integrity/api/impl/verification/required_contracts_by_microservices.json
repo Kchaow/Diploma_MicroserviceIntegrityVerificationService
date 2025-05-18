@@ -1,0 +1,107 @@
+{
+  "service8": [
+    {
+      "name": "contract14",
+      "artifactId": "artifactId7",
+      "groupId": "groupId7",
+      "version": "1.7.0",
+      "checksum": "nop012"
+    },
+    {
+      "name": "contract15",
+      "artifactId": "artifactId8",
+      "groupId": "groupId8",
+      "version": "1.8.0",
+      "checksum": "qrs345"
+    }
+  ],
+  "service9": [
+    {
+      "name": "contract16",
+      "artifactId": "artifactId8",
+      "groupId": "groupId8",
+      "version": "1.8.1",
+      "checksum": "tuv678"
+    },
+    {
+      "name": "contract17",
+      "artifactId": "artifactId9",
+      "groupId": "groupId9",
+      "version": "1.9.0",
+      "checksum": "wxy901"
+    }
+  ],
+  "service10": [
+    {
+      "name": "contract18",
+      "artifactId": "artifactId9",
+      "groupId": "groupId9",
+      "version": "1.9.1",
+      "checksum": "zab234"
+    },
+    {
+      "name": "contract19",
+      "artifactId": "artifactId10",
+      "groupId": "groupId10",
+      "version": "2.0.0",
+      "checksum": "cde567"
+    }
+  ],
+  "service11": [
+    {
+      "name": "contract20",
+      "artifactId": "artifactId10",
+      "groupId": "groupId10",
+      "version": "2.0.1",
+      "checksum": "fgh890"
+    },
+    {
+      "name": "contract21",
+      "artifactId": "artifactId11",
+      "groupId": "groupId11",
+      "version": "2.1.0",
+      "checksum": "ijk123"
+    }
+  ],
+  "service12": [
+    {
+      "name": "contract22",
+      "artifactId": "artifactId11",
+      "groupId": "groupId11",
+      "version": "2.1.1",
+      "checksum": "lmn456"
+    },
+    {
+      "name": "wrongName",
+      "artifactId": "artifactId12",
+      "groupId": "groupId12",
+      "version": "2.2.0",
+      "checksum": "opq789"
+    }
+  ],
+  "service13": [
+    {
+      "name": "contract24",
+      "artifactId": "wrongDependency",
+      "groupId": "groupId12",
+      "version": "2.2.1",
+      "checksum": "rst012"
+    },
+    {
+      "name": "contract25",
+      "artifactId": "artifactId13",
+      "groupId": "groupId13",
+      "version": "wrongVersion",
+      "checksum": "uvw345"
+    }
+  ],
+  "service14": [
+    {
+      "name": "contract26",
+      "artifactId": "artifactId13",
+      "groupId": "groupId13",
+      "version": "2.3.1",
+      "checksum": "wrongChecksum"
+    }
+  ]
+}

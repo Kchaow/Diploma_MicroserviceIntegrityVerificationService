@@ -1,0 +1,120 @@
+/* Общие стили */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+}
+
+/* Контейнер приложения */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Заголовок */
+.app-container h1 {
+  margin-bottom: 40px;
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Вертикальный список графиков */
+.graphs-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  gap: 15px;
+}
+
+/* Контейнер панели */
+.graph-panel-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.graph-panel-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для активных панелей */
+.graph-panel-container:not(.disabled):hover {
+  border-color: #3498db;
+}
+
+/* Ссылка внутри панели */
+.graph-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+/* Стили для неактивных панелей */
+.graph-panel-container.disabled {
+  opacity: 0.7;
+  background-color: #f9f9f9;
+}
+
+.graph-link.disabled {
+  color: #95a5a6;
+}
+
+/* ID графа */
+.graph-id {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: inherit;
+}
+
+/* Статистика */
+.graph-stats {
+  font-size: 1rem;
+  color: inherit;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Бейдж статуса */
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #f1c40f;
+  color: #34495e;
+}
+
+/* Состояния загрузки и ошибки */
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.4rem;
+}
+
+.loading {
+  color: #3498db;
+}
+
+.error {
+  color: #e74c3c;
+}

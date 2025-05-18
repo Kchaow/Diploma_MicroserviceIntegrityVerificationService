@@ -1,0 +1,10 @@
+{
+  "name": "micro1",
+  "checksum": "312",
+  "serviceName": "service1",
+  "dependencyInfo": {
+    "groupId": "group4",
+    "artifactId": "artifact4",
+    "version": "version4"
+  }
+}

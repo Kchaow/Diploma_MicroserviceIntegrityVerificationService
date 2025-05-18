@@ -1,0 +1,238 @@
+{
+  "name": "testMicro",
+  "usesMicroservices": [
+
+  ],
+  "consumingContracts": [
+    {
+      "serviceName": "service1",
+      "contract": {
+        "name": "contract1",
+        "artifactId": "artifactId1",
+        "groupId": "groupId1",
+        "version": "1.0.0",
+        "checksum": "abc123"
+      }
+    },
+    {
+      "serviceName": "service1",
+      "contract": {
+        "name": "contract2",
+        "artifactId": "artifactId1",
+        "groupId": "groupId1",
+        "version": "1.0.1",
+        "checksum": "def456"
+      }
+    },
+    {
+      "serviceName": "service2",
+      "contract": {
+        "name": "contract3",
+        "artifactId": "artifactId2",
+        "groupId": "groupId2",
+        "version": "1.1.0",
+        "checksum": "ghi789"
+      }
+    },
+    {
+      "serviceName": "service2",
+      "contract": {
+        "name": "contract4",
+        "artifactId": "artifactId2",
+        "groupId": "groupId2",
+        "version": "1.1.1",
+        "checksum": "jkl012"
+      }
+    },
+    {
+      "serviceName": "service3",
+      "contract": {
+        "name": "contract5",
+        "artifactId": "artifactId3",
+        "groupId": "groupId3",
+        "version": "1.2.0",
+        "checksum": "mno345"
+      }
+    },
+    {
+      "serviceName": "service3",
+      "contract": {
+        "name": "contract6",
+        "artifactId": "artifactId3",
+        "groupId": "groupId3",
+        "version": "1.2.1",
+        "checksum": "pqr678"
+      }
+    },
+    {
+      "serviceName": "service4",
+      "contract": {
+        "name": "contract7",
+        "artifactId": "artifactId4",
+        "groupId": "groupId4",
+        "version": "1.3.0",
+        "checksum": "stu901"
+      }
+    },
+    {
+      "serviceName": "service4",
+      "contract": {
+        "name": "contract8",
+        "artifactId": "artifactId4",
+        "groupId": "groupId4",
+        "version": "1.3.1",
+        "checksum": "vwx234"
+      }
+    },
+    {
+      "serviceName": "service5",
+      "contract": {
+        "name": "contract9",
+        "artifactId": "artifactId5",
+        "groupId": "groupId5",
+        "version": "1.4.0",
+        "checksum": "yza567"
+      }
+    },
+    {
+      "serviceName": "service5",
+      "contract": {
+        "name": "contract10",
+        "artifactId": "artifactId5",
+        "groupId": "groupId5",
+        "version": "1.4.1",
+        "checksum": "bcd890"
+      }
+    },
+    {
+      "serviceName": "service6",
+      "contract": {
+        "name": "contract11",
+        "artifactId": "artifactId6",
+        "groupId": "groupId6",
+        "version": "1.5.0",
+        "checksum": "efg123"
+      }
+    },
+    {
+      "serviceName": "service6",
+      "contract": {
+        "name": "contract12",
+        "artifactId": "artifactId6",
+        "groupId": "groupId6",
+        "version": "1.5.1",
+        "checksum": "hij456"
+      }
+    },
+    {
+      "serviceName": "service7",
+      "contract": {
+        "name": "contract13",
+        "artifactId": "artifactId7",
+        "groupId": "groupId7",
+        "version": "1.6.0",
+        "checksum": "klm789"
+      }
+    }
+  ],
+  "providingContracts": [
+    {
+      "name": "contract14",
+      "artifactId": "artifactId7",
+      "groupId": "groupId7",
+      "version": "1.7.0",
+      "checksum": "nop012"
+    },
+    {
+      "name": "contract15",
+      "artifactId": "artifactId8",
+      "groupId": "groupId8",
+      "version": "1.8.0",
+      "checksum": "qrs345"
+    },
+    {
+      "name": "contract16",
+      "artifactId": "artifactId8",
+      "groupId": "groupId8",
+      "version": "1.8.1",
+      "checksum": "tuv678"
+    },
+    {
+      "name": "contract17",
+      "artifactId": "artifactId9",
+      "groupId": "groupId9",
+      "version": "1.9.0",
+      "checksum": "wxy901"
+    },
+    {
+      "name": "contract18",
+      "artifactId": "artifactId9",
+      "groupId": "groupId9",
+      "version": "1.9.1",
+      "checksum": "zab234"
+    },
+    {
+      "name": "contract19",
+      "artifactId": "artifactId10",
+      "groupId": "groupId10",
+      "version": "2.0.0",
+      "checksum": "cde567"
+    },
+    {
+      "name": "contract20",
+      "artifactId": "artifactId10",
+      "groupId": "groupId10",
+      "version": "2.0.1",
+      "checksum": "fgh890"
+    },
+    {
+      "name": "contract21",
+      "artifactId": "artifactId11",
+      "groupId": "groupId11",
+      "version": "2.1.0",
+      "checksum": "ijk123"
+    },
+    {
+      "name": "contract22",
+      "artifactId": "artifactId11",
+      "groupId": "groupId11",
+      "version": "2.1.1",
+      "checksum": "lmn456"
+    },
+    {
+      "name": "contract23",
+      "artifactId": "artifactId12",
+      "groupId": "groupId12",
+      "version": "2.2.0",
+      "checksum": "opq789"
+    },
+    {
+      "name": "contract24",
+      "artifactId": "artifactId12",
+      "groupId": "groupId12",
+      "version": "2.2.1",
+      "checksum": "rst012"
+    },
+    {
+      "name": "contract25",
+      "artifactId": "artifactId13",
+      "groupId": "groupId13",
+      "version": "2.3.0",
+      "checksum": "uvw345"
+    },
+    {
+      "name": "contract26",
+      "artifactId": "artifactId13",
+      "groupId": "groupId13",
+      "version": "2.3.1",
+      "checksum": "xyz678"
+    },
+    {
+      "name": "contract27",
+      "artifactId": "artifactId14",
+      "groupId": "groupId14",
+      "version": "2.4.0",
+      "checksum": "abc901"
+    }
+  ]
+}

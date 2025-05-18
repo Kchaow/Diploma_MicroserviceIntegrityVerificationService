@@ -1,0 +1,28 @@
+services:
+  neo4j:
+    image: neo4j:5.24.2-enterprise
+    # restart: always
+    #http://localhost:7474
+    ports:
+    - 7474:7474
+    - 7687:7687
+    environment:
+      NEO4J_AUTH: neo4j/password
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: yes
+  mongodb:
+    image: mongo:8.0.1
+    # restart: always
+    #mongosh mongodb://mongo:mongo@localhost:27020/
+    ports:
+      - 27020:27017
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_DATABASE: graphs
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G

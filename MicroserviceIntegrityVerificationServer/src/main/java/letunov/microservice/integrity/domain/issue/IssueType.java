@@ -1,0 +1,10 @@
+package letunov.microservice.integrity.domain.issue;
+
+public enum IssueType {
+    CONTRACT_IS_NOT_PROVIDING,
+    MICROSERVICE_DOES_NOT_EXIST,
+    CONTRACT_DIFFERENT_DEPENDENCY,
+    CONTRACT_DIFFERENT_VERSION,
+    CONTRACT_DIFFERENT_CHECKSUM,
+    NOT_REQUIRED_CONTRACT,
+}

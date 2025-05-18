@@ -1,0 +1,91 @@
+{
+  "service1": [
+    {
+      "name": "contract1",
+      "artifactId": "artifactId1",
+      "groupId": "groupId1",
+      "version": "1.0.0",
+      "checksum": "abc123"
+    },
+    {
+      "name": "contract2",
+      "artifactId": "artifactId1",
+      "groupId": "groupId1",
+      "version": "1.0.1",
+      "checksum": "def456"
+    }
+  ],
+  "service2": [
+    {
+      "name": "contract3",
+      "artifactId": "artifactId2",
+      "groupId": "groupId2",
+      "version": "1.1.0",
+      "checksum": "ghi789"
+    },
+    {
+      "name": "contract4",
+      "artifactId": "artifactId2",
+      "groupId": "groupId2",
+      "version": "1.1.1",
+      "checksum": "jkl012"
+    }
+  ],
+  "service3": [
+    {
+      "name": "contract5",
+      "artifactId": "artifactId3",
+      "groupId": "groupId3",
+      "version": "1.2.0",
+      "checksum": "mno345"
+    },
+    {
+      "name": "contract6",
+      "artifactId": "artifactId3",
+      "groupId": "groupId3",
+      "version": "1.2.1",
+      "checksum": "pqr678"
+    }
+  ],
+  "service5": [
+    {
+      "name": "wrongName",
+      "artifactId": "artifactId5",
+      "groupId": "groupId5",
+      "version": "1.4.0",
+      "checksum": "yza567"
+    },
+    {
+      "name": "contract10",
+      "artifactId": "wrongArtifact",
+      "groupId": "groupId5",
+      "version": "1.4.1",
+      "checksum": "bcd890"
+    }
+  ],
+  "service6": [
+    {
+      "name": "contract11",
+      "artifactId": "artifactId6",
+      "groupId": "groupId6",
+      "version": "1.5.0",
+      "checksum": "efg123"
+    },
+    {
+      "name": "contract12",
+      "artifactId": "artifactId6",
+      "groupId": "groupId6",
+      "version": "wrongVersion",
+      "checksum": "hij456"
+    }
+  ],
+  "service7": [
+    {
+      "name": "contract13",
+      "artifactId": "artifactId7",
+      "groupId": "groupId7",
+      "version": "1.6.0",
+      "checksum": "wrongChecksum"
+    }
+  ]
+}

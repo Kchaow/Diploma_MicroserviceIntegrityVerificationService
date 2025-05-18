@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: microservice.integrity
+  neo4j:
+    authentication:
+      password: password
+      username: neo4j
+    uri: bolt://localhost:7687
+  data:
+    mongodb:
+      host: localhost
+      username: master
+      password: master
+      port: 27020
+      database: graphs
+
+server:
+  servlet:
+    context-path: /api/v1
+  port: 8081
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          neo4j:
+            cypher:
+              deprecation: off
+
+integration:
+  front-url: http://localhost:3000

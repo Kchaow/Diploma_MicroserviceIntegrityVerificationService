@@ -1,0 +1,77 @@
+{
+  "name": "microName",
+  "usesMicroservices": [
+    {
+      "contractName": "micro1",
+      "microservice": {
+        "name": "service1",
+        "usesMicroservices": [
+
+        ],
+        "consumingContracts": [
+
+        ],
+        "providingContracts": [
+
+        ]
+      }
+    }
+  ],
+  "consumingContracts": [
+    {
+      "serviceName": "service1",
+      "contract": {
+        "id": "1",
+        "name": "identical",
+        "artifactId": "identical",
+        "groupId": "identical",
+        "version": "identical",
+        "checksum": "checksum"
+      }
+    },
+    {
+      "serviceName": "service2",
+      "contract": {
+        "name": "micro2",
+        "artifactId": "artifact5",
+        "groupId": "group5",
+        "version": "version5",
+        "checksum": "3243"
+      }
+    },
+    {
+      "serviceName": "service3",
+      "contract": {
+        "name": "micro3",
+        "artifactId": "artifact6",
+        "groupId": "group6",
+        "version": "version6",
+        "checksum": "4324"
+      }
+    }
+  ],
+  "providingContracts": [
+    {
+      "id": "1",
+      "name": "identical",
+      "artifactId": "identical",
+      "groupId": "identical",
+      "version": "identical",
+      "checksum": "checksum"
+    },
+    {
+      "name": "micro2",
+      "artifactId": "artifact2",
+      "groupId": "group2",
+      "version": "version2",
+      "checksum": "34"
+    },
+    {
+      "name": "micro3",
+      "artifactId": "artifact3",
+      "groupId": "group3",
+      "version": "version3",
+      "checksum": "467"
+    }
+  ]
+}

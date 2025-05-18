@@ -1,0 +1,26 @@
+[
+  {
+    "name": "microserviceThatRequires",
+    "usesMicroservices": [
+    ],
+    "consumingContracts": [
+      {
+        "id": "1233",
+        "serviceName": "someService",
+        "contract": {
+          "name": "someContract"
+        }
+      },
+      {
+        "id": "1241",
+        "serviceName": "microName",
+        "contract": {
+          "name": "idk"
+        }
+      }
+    ],
+    "providingContracts": [
+
+    ]
+  }
+]

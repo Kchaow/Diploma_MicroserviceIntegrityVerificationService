@@ -1,0 +1,14 @@
+[
+  {
+    "name": "service1",
+    "usesMicroservices": [
+
+    ],
+    "consumingContracts": [
+
+    ],
+    "providingContracts": [
+
+    ]
+  }
+]
