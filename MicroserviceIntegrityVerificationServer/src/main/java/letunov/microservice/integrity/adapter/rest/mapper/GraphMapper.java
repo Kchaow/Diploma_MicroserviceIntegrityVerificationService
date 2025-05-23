@@ -15,11 +15,18 @@ import letunov.microservice.integrity.domain.graph.microservice.MicroserviceInfo
 import letunov.microservice.integrity.domain.graph.microservice.ProvidingContractInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface GraphMapper {
+    @Mapping(target = "status", source = "changeGraphStatus")
+    @Mapping(target = "edges", source = "graph.edges")
+    @Mapping(target = "messages", source = "graph.messages")
+    @Mapping(target = "nodes", source = "graph.nodes")
+    GraphDto toGraphDto(ChangeGraph graph);
+
     GraphDto toGraphDto(Graph graph);
 
     NodeDto toNodeDto(Node node);

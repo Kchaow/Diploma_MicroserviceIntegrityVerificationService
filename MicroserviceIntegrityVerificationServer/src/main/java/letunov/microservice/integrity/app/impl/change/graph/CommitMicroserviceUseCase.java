@@ -1,6 +1,7 @@
 package letunov.microservice.integrity.app.impl.change.graph;
 
 import letunov.microservice.integrity.app.api.change.graph.CommitMicroserviceInbound;
+import letunov.microservice.integrity.app.api.change.graph.VerifyChangeGraphInbound;
 import letunov.microservice.integrity.app.api.repo.ChangeGraphRepository;
 import letunov.microservice.integrity.domain.graph.ChangeGraph;
 import letunov.microservice.integrity.domain.graph.microservice.ChangeGraphStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @Transactional
 public class CommitMicroserviceUseCase implements CommitMicroserviceInbound {
     private final ChangeGraphRepository changeGraphRepository;
+    private final VerifyChangeGraphInbound verifyChangeGraphInbound;
 
     @Override
     public void execute(MicroserviceInfo microserviceInfo, String changeGraphId) {
@@ -27,11 +29,12 @@ public class CommitMicroserviceUseCase implements CommitMicroserviceInbound {
             throw new RuntimeException();
         }
 
+        changeGraphRepository.save(changeGraph);
         changeGraph.getCommitedMicroservices().add(microserviceInfo);
         if (changeGraph.getCommitedMicroservices().size() == changeGraph.getAssociatedMicroservices().size()) {
-            changeGraph.setChangeGraphStatus(ChangeGraphStatus.WAIT_FOR_VERIFY);
+//            changeGraph.setChangeGraphStatus(ChangeGraphStatus.WAIT_FOR_VERIFY);
+            verifyChangeGraphInbound.execute(changeGraph);
         }
-        changeGraphRepository.save(changeGraph);
     }
 
     // ===================================================================================================================

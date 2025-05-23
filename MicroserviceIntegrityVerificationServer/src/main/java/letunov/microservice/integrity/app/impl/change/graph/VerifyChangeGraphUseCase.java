@@ -67,10 +67,35 @@ public class VerifyChangeGraphUseCase implements VerifyChangeGraphInbound {
         Graph graph = getGraphDelegate.execute(microservicesToGetGraph, issues);
         changeGraph.setGraph(graph);
         changeGraph.setChangeGraphStatus(ChangeGraphStatus.DONE);
+        changeGraph.setVerificationStatus(getGraphStatus(graph));
         changeGraphRepository.save(changeGraph);
 
 
-        return new VerificationResult(getGraphStatus(graph));
+        return new VerificationResult(changeGraph.getVerificationStatus());
+    }
+
+    @Transactional
+    public void execute(ChangeGraph changeGraph) {
+        if (changeGraph.getCommitedMicroservices().size() != changeGraph.getAssociatedMicroservices().size()) {
+            throw new RuntimeException();
+        }
+
+        Map<String, Microservice> microservicesMap = convertToMicroservicesMap(changeGraph.getCommitedMicroservices());
+        List<Microservice> microservicesThatRequireCurrent = getMicroservicesThatRequireCurrent(microservicesMap);
+        List<Microservice> microservicesRequiredByCurrent = getRequiredMicroservices(microservicesMap);
+
+        List<Microservice> microservicesToGetGraph = new ArrayList<>();
+        microservicesToGetGraph.addAll(microservicesMap.values());
+        microservicesToGetGraph.addAll(microservicesThatRequireCurrent);
+        microservicesToGetGraph.addAll(microservicesRequiredByCurrent);
+
+        List<Issue> issues = microserviceVerificationService.verify(microservicesMap.values().stream().toList());
+
+        Graph graph = getGraphDelegate.execute(microservicesToGetGraph, issues);
+        changeGraph.setGraph(graph);
+        changeGraph.setChangeGraphStatus(ChangeGraphStatus.DONE);
+        changeGraph.setVerificationStatus(getGraphStatus(graph));
+        changeGraphRepository.save(changeGraph);
     }
 
     // ===================================================================================================================

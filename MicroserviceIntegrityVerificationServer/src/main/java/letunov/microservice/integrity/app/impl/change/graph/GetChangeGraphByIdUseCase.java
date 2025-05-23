@@ -16,9 +16,9 @@ public class GetChangeGraphByIdUseCase implements GetChangeGraphByIdInbound {
     public ChangeGraph execute(String id) {
         var changeGraph = changeGraphRepository.findById(id)
             .orElseThrow(() -> new RuntimeException());
-        if (changeGraph.getChangeGraphStatus() != ChangeGraphStatus.DONE) {
-            throw new RuntimeException();
-        }
+//        if (changeGraph.getChangeGraphStatus() != ChangeGraphStatus.DONE) {
+//            throw new RuntimeException();
+//        }
         return changeGraph;
     }
 }

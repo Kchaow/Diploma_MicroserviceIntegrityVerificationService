@@ -5,11 +5,11 @@ import Display from "../../components/Display";
 import * as api from '../../api/MicroserviceVerificationAPI';
 
 const ChangeGraph = () => {
-    const { graphId } = useParams();
+    const { id } = useParams();
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        api.getChangeGraph(graphId).then(data => {
+        api.getChangeGraph(id).then(data => {
             console.log(data);
             setData(data);
         })

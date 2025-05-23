@@ -91,8 +91,8 @@ public class MicroserviceIntegrityController {
     @GetMapping("/change-graph/{id}")
     public ResponseEntity<GraphDto> getGraphById(@PathVariable String id) {
         log.info("[getGraphById] request; id: {}", id);
-        var graph = getChangeGraphByIdInbound.execute(id);
-        return ResponseEntity.ok(graphMapper.toGraphDto(graph.getGraph()));
+        var result = getChangeGraphByIdInbound.execute(id);
+        return ResponseEntity.ok(graphMapper.toGraphDto(result));
     }
 
     @Operation(summary = "Справочник существующих микросервисов")

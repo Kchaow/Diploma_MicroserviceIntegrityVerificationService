@@ -26,4 +26,5 @@ public class ChangeGraph {
     private Graph graph;
     private ChangeGraphStatus changeGraphStatus;
     private LocalDateTime dateTime;
+    private GraphElementStatus verificationStatus;
 }

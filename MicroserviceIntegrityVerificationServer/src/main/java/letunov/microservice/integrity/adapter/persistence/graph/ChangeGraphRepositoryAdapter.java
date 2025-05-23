@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import static letunov.microservice.integrity.domain.graph.microservice.ChangeGraphStatus.WAIT_FOR_COMMIT;
+
 @Repository
 @RequiredArgsConstructor
 public class ChangeGraphRepositoryAdapter implements ChangeGraphRepository {
@@ -30,6 +32,6 @@ public class ChangeGraphRepositoryAdapter implements ChangeGraphRepository {
 
     @Override
     public List<ChangeGraph> findByAssociatedMicroservicesContains(String associatedMicroservice) {
-        return changeGraphMongodbRepository.findByAssociatedMicroservicesContains(associatedMicroservice);
+        return changeGraphMongodbRepository.findByAssociatedMicroservicesContainsAndChangeGraphStatusIs(associatedMicroservice, WAIT_FOR_COMMIT);
     }
 }
