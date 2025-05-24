@@ -36,20 +36,22 @@ public class ContractRepositoryAdapter implements ContractRepository {
 
     @Override
     public Optional<Contract> findIdentical(ProvidingContractInfo providingContractInfo) {
-        return contractNeo4jRepository.findByNameAndArtifactIdAndGroupIdAndVersionAndChecksum(providingContractInfo.getName(),
+        var result = contractNeo4jRepository.findAllByNameAndArtifactIdAndGroupIdAndVersionAndChecksum(providingContractInfo.getName(),
             providingContractInfo.getDependencyInfo().getArtifactId(),
             providingContractInfo.getDependencyInfo().getGroupId(),
             providingContractInfo.getDependencyInfo().getVersion(),
             providingContractInfo.getChecksum());
+        return result.isEmpty() ? Optional.empty() : Optional.of(result.getFirst());
     }
 
     @Override
     public Optional<Contract> findIdentical(ConsumingContractInfo consumingContractInfo) {
-        return contractNeo4jRepository.findByNameAndArtifactIdAndGroupIdAndVersionAndChecksum(consumingContractInfo.getName(),
+        var result = contractNeo4jRepository.findAllByNameAndArtifactIdAndGroupIdAndVersionAndChecksum(consumingContractInfo.getName(),
             consumingContractInfo.getDependencyInfo().getArtifactId(),
             consumingContractInfo.getDependencyInfo().getGroupId(),
             consumingContractInfo.getDependencyInfo().getVersion(),
             consumingContractInfo.getChecksum());
+        return result.isEmpty() ? Optional.empty() : Optional.of(result.getFirst());
     }
 
     @Override

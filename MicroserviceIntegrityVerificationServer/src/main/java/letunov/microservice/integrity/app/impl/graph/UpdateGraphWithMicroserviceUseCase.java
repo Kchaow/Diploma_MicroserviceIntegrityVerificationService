@@ -9,7 +9,9 @@ import letunov.microservice.integrity.app.api.verification.MicroserviceVerificat
 import letunov.microservice.integrity.domain.issue.Issue;
 import letunov.microservice.integrity.domain.microservice.Microservice;
 import lombok.RequiredArgsConstructor;
+import org.neo4j.driver.exceptions.TransientException;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
@@ -19,6 +21,8 @@ import static letunov.microservice.integrity.domain.issue.IssueType.MICROSERVICE
 @Component
 @RequiredArgsConstructor
 public class UpdateGraphWithMicroserviceUseCase implements UpdateGraphWithMicroserviceInbound {
+    private static final int MAX_RETRIES = 3;
+
     private final MicroserviceVerificationService microserviceVerificationService;
     private final IssueRepository issueRepository;
     private final ContractRepository contractRepository;
@@ -26,30 +30,41 @@ public class UpdateGraphWithMicroserviceUseCase implements UpdateGraphWithMicros
     private final FillMicroserviceWithInfoDelegate fillMicroservice;
     private final GetUsesRelationshipsFromConsumingDelegate getUsesRelationshipsFromConsuming;
 
-    @Transactional
+//    @Transactional(isolation = Isolation.READ_COMMITTED)
     @Override
-    public void execute(MicroserviceInfo microserviceInfo) {
-        var microserviceOpt = microserviceRepository.findByName(microserviceInfo.getName());
+    public synchronized void execute(MicroserviceInfo microserviceInfo) {
+        int attempt = 0;
+        while (true) {
+            try {
+                var microserviceOpt = microserviceRepository.findByName(microserviceInfo.getName());
 
-        clearRelationships(microserviceInfo);
+                clearRelationships(microserviceInfo);
 
-        var microservice = fillMicroservice.execute(
-            microserviceOpt.orElse(new Microservice().setName(microserviceInfo.getName())),
-            microserviceInfo
-        );
-        microservice = microserviceRepository.save(microservice);
+                var microservice = fillMicroservice.execute(
+                    microserviceOpt.orElse(new Microservice().setName(microserviceInfo.getName())),
+                    microserviceInfo
+                );
+                microservice = microserviceRepository.save(microservice);
 
-        if (microserviceOpt.isEmpty()) {
-            var microservicesThatRequire = microserviceRepository.findMicroservicesRequiredMicroservice(microservice.getName());
-            var finalMicroservice = microservice;
-            microservicesThatRequire
-                .forEach(consumingMicroservice -> consumingMicroservice.getUsesMicroservices()
-                    .addAll(getUsesRelationshipsFromConsuming.execute(consumingMicroservice, finalMicroservice)));
-            microserviceRepository.saveAll(microservicesThatRequire);
+                if (microserviceOpt.isEmpty()) {
+                    var microservicesThatRequire = microserviceRepository.findMicroservicesRequiredMicroservice(microservice.getName());
+                    var finalMicroservice = microservice;
+                    microservicesThatRequire
+                        .forEach(consumingMicroservice -> consumingMicroservice.getUsesMicroservices()
+                            .addAll(getUsesRelationshipsFromConsuming.execute(consumingMicroservice, finalMicroservice)));
+                    microserviceRepository.saveAll(microservicesThatRequire);
+                }
+
+                verify(microservice);
+                contractRepository.deleteAllWithoutRelationships();
+                break;
+            } catch (TransientException e) {
+                attempt++;
+                if (attempt >= MAX_RETRIES) {
+                    throw e;
+                }
+            }
         }
-
-        verify(microservice);
-        contractRepository.deleteAllWithoutRelationships();
     }
 
     // ===================================================================================================================

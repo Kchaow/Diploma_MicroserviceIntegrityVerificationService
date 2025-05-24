@@ -31,5 +31,5 @@ public interface ContractNeo4jRepository extends Neo4jRepository<Contract, Long>
         """)
     void deleteAllWithoutRelationships();
 
-    Optional<Contract> findByNameAndArtifactIdAndGroupIdAndVersionAndChecksum(String name, String artifactId, String groupId, String version, String checksum);
+    List<Contract> findAllByNameAndArtifactIdAndGroupIdAndVersionAndChecksum(String name, String artifactId, String groupId, String version, String checksum);
 }
